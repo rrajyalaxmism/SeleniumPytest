@@ -5,17 +5,8 @@ from selenium.common.exceptions import NoSuchElementException
 import pytest
 
 
+@pytest.mark.usefixtures("driver")
 class Test_Simple_Search:
-
-    @pytest.fixture(scope='class')
-    def driver(self):
-        driver = webdriver.Chrome()
-        driver.get(r"https:\\www.Cleartrip.com")
-        driver.maximize_window()
-        time.sleep(2)
-        yield driver
-        driver.close()
-        driver.quit()
 
     def test_close_popups(self, driver):
 
