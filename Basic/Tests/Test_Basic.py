@@ -1,8 +1,7 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 from selenium.common.exceptions import NoSuchElementException
 import pytest
+from Pages.HomePage import  *
 
 
 @pytest.mark.usefixtures("driver")
@@ -17,5 +16,7 @@ class Test_Simple_Search:
 
     def test_search(self, driver):
 
-        driver.find_element(By.XPATH, "//span[text()='One way']").click()
-        driver.find_element(By.XPATH, "//li[@value='rt']").click()
+        set_flight_search_and_click(driver,"BLR","DEL")
+
+
+
